@@ -19,7 +19,7 @@ track = mido.MidiTrack()
 live = ["note_on", "note_off"]
 max_note = 127
 max_program = 127
-max_time = 100
+max_time = 50
 mid.tracks.append(track)
 
 '''
@@ -31,9 +31,10 @@ for i in range(max_program):
 mid.save("programs.mid")
 '''
 
+#Random output
 for i in range(100):
-    track.append(mido.Message("program_change", program=harpsichord, time=0))
-    #track.append(mido.Message("program_change", program=random.randint(0, max_program), time=0))
+    #track.append(mido.Message("program_change", program=harpsichord, time=0))
+    track.append(mido.Message("program_change", program=random.randint(0, max_program), time=0))
     track.append(mido.Message("note_on", note=random.randint(0, max_note), time=random.randint(0, 150)))
     track.append(mido.Message("note_off" , note=random.randint(0, max_note), time=random.randint(0, 150)))
     #track.append(mido.Message(random.choice(live), note=random.randint(0, max_note), time=random.randint(0, max_time)))
