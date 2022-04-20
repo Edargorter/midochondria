@@ -6,7 +6,6 @@ import random
 
 harpsichord=6
 
-
 #INFO
 
 mid = mido.MidiFile()
